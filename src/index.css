@@ -1,5 +1,184 @@
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+}
+
+ul {
+  padding-left: 0;
+}
+
+li {
+  list-style-type: none;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.container {
+  max-width: 580px;
+  margin: auto;
+  display: flex;
+  margin: auto;
+  flex-wrap:wrap;
+  border: 5px solid #dbdbdb;
+  border-radius: 5px;
+  background-color: #f7f7f7;
+}
+
+.container .icon {
+  margin: auto 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.container .icon img {
+  width: 100px;
+  height: 100px;
+}
+
+.container .icon-big{
+  margin: auto 10px;
+  padding: 20px 0;
+}
+
+.container .icon-big img{
+  width: 160px;
+  height: 160px;
+}
+
+.container .title {
+  color: black;
+  font-weight: bold;
+  width: 100%;
+  padding: 12px 20px;
+  text-align: left;
+}
+
+.container .content {
+  display: flex;
+  border-top: 5px solid #dbdbdb;
+  width: 100%;
+}
+
+.container .text {
+  padding: 0 12px;
+  border-left: 3px solid #dbdbdb;
+  margin: 15px 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.container p {
+  padding: 5px 0 0 0;
+  margin-top: 0px;
+}
+
+.text p:first-child {
+  font-weight: bold;
+  margin-bottom: 1em;
+}
+
+.text p:nth-child(2) {
+  font-size: 0.8em;
+  color: #9d9d9d;
+  margin-bottom: 1em;
+}
+
+.view-btn {
+  border: 2px solid #5dbca4;
+  border-radius: 5px;
+  color: #5dbca4;
+  text-align: center;
+  width: auto;
+  margin: auto 0 2px;
+  padding: 0.5em 0;
+  font-size: 0.8em;
+}
+
+.answer-box {
+  margin: 5px auto;
+  width: 100%;
+  border: 2px solid;
+  border-radius: 5px;
+  padding: 10px 15px;
+}
+
+.answer {
+  border-color: #a3c2ba;
+  background-color: #dffaf6;
+  color: #568179;
+}
+
+.no-answer {
+  border-color: #dadada;
+  background-color: #eeeeee;
+  color: #1d1d1d;
+}
+
+.progress-bar-bg {
+  background-color: #d6d6d6;
+  height:25px;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.progress-bar{
+  border-radius: 5px;
+  background-color: #38c69c;
+  height:25px;
+  color: white;
+  opacity: 0.7;
+
+}
+
+.progress-bar span{
+  display: block;
+  text-align: right;
+  height: 100%;
+  padding: 3px;
+  margin: auto;
+
+}
+
+.progress-bar-bg + p{
+  text-align: center;
+  font-size: 0.8em;
+  font-weight: bold;
+  color: #1d1d1d;
+  margin: auto;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  display:block;
+  padding: auto;
+  margin: 10px 0;
+  text-align: left;
+}
+
+input[type="radio"] {
+  margin-right: 1em;
+}
+
+.submit-btn {
+  border: 2px solid #2ca280;
+  background-color: #2ca280;
+  border-radius: 5px;
+  color: white;
+  text-align: center;
+  width: 100%;
+  margin: 10px auto;
+  padding: 0.5em 0;
+  font-size: 0.8em;
 }
