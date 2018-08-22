@@ -18,3 +18,8 @@ export function getInitialData () {
 export function saveQuestionAnswer( qa ) {
   return _saveQuestionAnswer(qa)
 }
+
+export function saveQuestion (question) {
+  return _saveQuestion(question)
+    .then((q) => (q))
+}

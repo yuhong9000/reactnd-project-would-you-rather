@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { formatQuestionInfo } from '../util/helper'
 import { updateQuestionAnswer } from '../actions/shared'
+import { withRouter } from 'react-router-dom'
 
 class Question extends Component{
   state = {
@@ -23,6 +24,11 @@ class Question extends Component{
     }))
   }
 
+  handleViewPoll = () => {
+    const { history, id } = this.props;
+    history.push(`/question/${id}`);
+  }
+
   handleSubmit = (e) => {
       e.preventDefault();
 
@@ -40,23 +46,23 @@ class Question extends Component{
   }
 
   render(){
-    const { question, display } = this.props;
-    const { answer,submit_disabled } = this.state;
+    const { question,display } = this.props;
+    const { answer, submit_disabled } = this.state;
     const { name, avatar, optionOne, optionTwo, answerOne, answerTwo,
       hasAnswered,votesOne, votesTwo, votesTotal} = question;
 
     return(
-      <div className="container">
+      <div className="container vertical">
         <div className="title">{name} asks:</div>
         {display
           ? <div className="content">
-              <div className="icon">
+              <div className="icon regular-margin">
                 <img src={avatar} alt={`Avatar of ${name}`} />
               </div>
-              <div className="text">
+              <div className="questionbox border-left">
                 <p>Would you rather</p>
                 <p>...{optionOne.text.slice(0,25)}...</p>
-                <button className="view-btn">View Poll</button>
+                <button className="view-btn" onClick={this.handleViewPoll}>View Poll</button>
               </div>
             </div>
           : hasAnswered
@@ -64,7 +70,7 @@ class Question extends Component{
               <div className="icon icon-big">
                 <img src={avatar} alt={`Avatar of ${name}`} />
               </div>
-              <div className="text">
+              <div className="questionbox border-left">
                 <p className="results">Results</p>
                 <div className={`answer-box ${answerOne? "answer" : "no-answer"}`}>
                   <p>Would you rather {optionOne.text}?</p>
@@ -90,7 +96,7 @@ class Question extends Component{
               <div className="icon icon-big">
                 <img src={avatar} alt={`Avatar of ${name}`} />
               </div>
-              <div className="text">
+              <div className="questionbox border-left">
                 <p className="title-big">Would you rather</p>
                 <form onSubmit={this.handleSubmit}>
                   <label>
@@ -113,10 +119,9 @@ class Question extends Component{
   }
 }
 
-function mapStateToProps ({ authedUser, users, questions}, { id, display }) {
+function mapStateToProps ({ authedUser, users, questions}, { id,display }) {
   const question = questions[id];
-  const author = users[question['author']];
-
+  const author = question? users[question['author']]:'';
   return {
     question: question
       ? formatQuestionInfo(question, author, authedUser)
@@ -125,4 +130,4 @@ function mapStateToProps ({ authedUser, users, questions}, { id, display }) {
   }
 }
 
-export default connect(mapStateToProps)(Question)
+export default withRouter(connect(mapStateToProps)(Question))
