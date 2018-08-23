@@ -59,7 +59,7 @@ class NewQuestion extends Component{
   }
 }
 
-function mapStateToProps ({ authedUser, users, questions}) {
+function mapStateToProps ({ authedUser }) {
   return {
     authedUser,
   }
