@@ -8,7 +8,7 @@ class QuestionPage extends Component {
 
     return (
 
-      
+
         hasId
           ? <div>
               <ul>
@@ -27,11 +27,11 @@ class QuestionPage extends Component {
 }
 
 function mapStateToProps ({ questions }, props) {
-  const { id } = props.match.params;
+  const { question_id } = props.match.params;
 
   return {
-    id,
-    hasId: Object.keys(questions).includes(id),
+    id: question_id,
+    hasId: Object.keys(questions).includes(question_id),
   }
 }
 

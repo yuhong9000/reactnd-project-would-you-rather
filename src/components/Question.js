@@ -35,8 +35,6 @@ class Question extends Component{
       const { answer } = this.state;
       const { dispatch, authedUser, id} = this.props;
 
-      console.log("Checked option is:", answer);
-
       dispatch(updateQuestionAnswer({
         authedUser,
         qid: id,

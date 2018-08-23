@@ -27,12 +27,12 @@ class App extends Component {
           {Loading === true
             ? null
             : SignedIn === false
-              ? <Route path='/' exact component={Login} />
+              ? <Route path='/' component={Login} />
               : <div>
                   <Nav avatar={avatarURL} name={name}/>
                   <div>
                     <Route path='/' exact component={Dashboard} />
-                    <Route path='/question/:id' component={QuestionPage} />
+                    <Route path='/question/:question_id' component={QuestionPage} />
                     <Route path='/add' component={NewQuestion} />
                     <Route path='/leaderboard' component={LeaderBoard} />
                   </div>
