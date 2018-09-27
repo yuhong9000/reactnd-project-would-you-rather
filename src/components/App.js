@@ -10,7 +10,9 @@ import NewQuestion from './NewQuestion'
 import LeaderBoard from './LeaderBoard'
 
 class App extends Component {
-
+  state = {
+    flag: false
+  }
   componentDidMount () {
 
     const cachedHits = sessionStorage.getItem('authedUser');

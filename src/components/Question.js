@@ -38,7 +38,7 @@ class Question extends Component{
       dispatch(updateQuestionAnswer({
         authedUser,
         qid: id,
-        answer: this.state.answer
+        answer: answer
       },this.disableSubmit));
 
   }
